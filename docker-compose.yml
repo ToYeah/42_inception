@@ -3,13 +3,13 @@ services:
   nginx:
     build: ./srcs/nginx
     image: nginx
-    container_name: inception_nginx
+    container_name: nginx
     ports:
       - "127.0.0.1:8080:80"
       - "127.0.0.1:443:443"
   wordpress:
     build: ./srcs/wordpress
-    image: wordprress
-    container_name: inception_wordpress
+    image: wordpress
+    container_name: wordpress
     ports:
-      - "127.0.0.1:8080:80"
+      - "9000"
