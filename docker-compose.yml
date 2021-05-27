@@ -10,7 +10,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - /home/totaisei/data:/var/www/html
+      - /home/totaisei/data/wp:/var/www/html
   wordpress:
     build: ./srcs/wordpress
     image: wordpress
@@ -20,10 +20,12 @@ services:
     ports:
       - "9000"
     volumes:
-      - /home/totaisei/data:/var/www/html
+      - /home/totaisei/data/wp:/var/www/html
   mariadb:
     build: ./srcs/mariadb
     image: mariadb
     container_name: mariadb
+    volumes:
+      - /home/totaisei/data/db:/var/lib/mysql
     ports:
       - "3306"
