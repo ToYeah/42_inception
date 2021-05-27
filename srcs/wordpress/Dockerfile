@@ -21,12 +21,21 @@ RUN		set -eux;\
 	php7-openssl \
 	php7-imagick \
 	php7-xml \
-	php7-zip
+	php7-zip \
+	php7-phar
 
 #add user www-data
 RUN set -eux;\
 	addgroup -g 82 -S www-data;\
 	adduser -u 82 -D -S -G www-data www-data
+
+#install wp-cli
+
+RUN		set -eux;\
+	wget -O /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;\
+	php /tmp/wp-cli.phar --info;\
+	chmod +x /tmp/wp-cli.phar; \
+	mv /tmp/wp-cli.phar /usr/local/bin/wp-cli;
 
 #setup wordpress
 COPY	./srcs/latest.tar.gz /tmp/latest.tar.gz

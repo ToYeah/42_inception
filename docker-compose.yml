@@ -5,12 +5,14 @@ services:
     image: nginx
     container_name: nginx
     ports:
-      - "127.0.0.1:8080:80"
-      - "127.0.0.1:443:443"
+      - "8080:80"
+      - "443:443"
     depends_on:
       - wordpress
     volumes:
       - /home/totaisei/data/wp:/var/www/html
+    extra_hosts:
+      - "${DOMAIN_NAME}:127.0.0.1"
   wordpress:
     build: ./srcs/wordpress
     image: wordpress
@@ -21,6 +23,17 @@ services:
       - "9000"
     volumes:
       - /home/totaisei/data/wp:/var/www/html
+    environment:
+      DOMAIN_NAME: "${DOMAIN_NAME}"
+      WP_ADMIN_LOGIN: "${WP_ADMIN_LOGIN}"
+      WP_ADMIN_PASS: "${WP_ADMIN_PASS}"
+      WP_ADMIN_EMAIL: "${WP_ADMIN_EMAIL}"
+      WP_USER_LOGIN_1: "${WP_USER_LOGIN_1}"
+      WP_USER_PASS_1: "${WP_USER_PASS_1}"
+      WP_USER_EMAIL_1: "${WP_USER_EMAIL_1}"
+      WP_USER_LOGIN_2: "${WP_USER_LOGIN_2}"
+      WP_USER_PASS_2: "${WP_USER_PASS_2}"
+      WP_USER_EMAIL_2: "${WP_USER_EMAIL_2}"
   mariadb:
     build: ./srcs/mariadb
     image: mariadb
