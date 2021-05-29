@@ -22,7 +22,8 @@ RUN		set -eux;\
 	php7-imagick \
 	php7-xml \
 	php7-zip \
-	php7-phar
+	php7-phar \
+	mysql-client
 
 #add user www-data
 RUN set -eux;\
@@ -48,7 +49,6 @@ RUN		set -eux;\
 
 RUN		rm /etc/php7/php-fpm.d/www.conf
 
-COPY	./srcs/wp-config.php /usr/src/wordpress/wp-config.php
 COPY 	./srcs/www.conf  /etc/php7/php-fpm.d/www.conf
 
 RUN		chown -R www-data:www-data /usr/src/wordpress
