@@ -13,6 +13,8 @@ services:
       - /home/totaisei/data/wp:/var/www/html
     extra_hosts:
       - "${DOMAIN_NAME}:127.0.0.1"
+    networks:
+      - inception_network
 
   wordpress:
     build: ./srcs/wordpress
@@ -38,6 +40,8 @@ services:
       WP_DB_NAME: "${WP_DB_NAME}"
       WP_DB_USER: "${WP_DB_USER}"
       WP_DB_PASS: "${WP_DB_PASS}"
+    networks:
+      - inception_network
 
   mariadb:
     build: ./srcs/mariadb
@@ -56,3 +60,9 @@ services:
       DB_USER_PASS_1: "${DB_USER_PASS_1}"
       DB_USER_NAME_2: "${DB_USER_NAME_2}"
       DB_USER_PASS_2: "${DB_USER_PASS_2}"
+    networks:
+      - inception_network
+
+networks:
+  inception_network:
+    driver: bridge
