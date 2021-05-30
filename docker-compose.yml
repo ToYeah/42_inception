@@ -52,3 +52,7 @@ services:
       WP_DB_NAME: "${WP_DB_NAME}"
       WP_DB_USER: "${WP_DB_USER}"
       WP_DB_PASS: "${WP_DB_PASS}"
+      DB_USER_NAME_1: "${DB_USER_NAME_1}"
+      DB_USER_PASS_1: "${DB_USER_PASS_1}"
+      DB_USER_NAME_2: "${DB_USER_NAME_2}"
+      DB_USER_PASS_2: "${DB_USER_PASS_2}"
