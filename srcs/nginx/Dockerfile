@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine
 
 #apk install
 RUN		set -eux;\
