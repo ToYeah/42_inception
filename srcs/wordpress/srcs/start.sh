@@ -11,5 +11,4 @@ if [ ! -e /var/www/html/wordpress ]; then
 	wp-cli user create $WP_USER_LOGIN_2 $WP_USER_EMAIL_2 --role=editor --user_pass="$WP_USER_PASS_2" --allow-root --path=/var/www/html/wordpress
 fi
 
-php-fpm7
-tail -f /dev/null
+php-fpm7 --nodaemonize
