@@ -15,6 +15,7 @@ services:
       - "${DOMAIN_NAME}:127.0.0.1"
     networks:
       - inception_network
+    restart: always
 
   wordpress:
     build: ./srcs/wordpress
@@ -42,6 +43,7 @@ services:
       WP_DB_PASS: "${WP_DB_PASS}"
     networks:
       - inception_network
+    restart: always
 
   mariadb:
     build: ./srcs/mariadb
@@ -62,6 +64,7 @@ services:
       DB_USER_PASS_2: "${DB_USER_PASS_2}"
     networks:
       - inception_network
+    restart: always
 
 networks:
   inception_network:
