@@ -1,7 +1,7 @@
 version: "3"
 services:
   nginx:
-    build: ./srcs/nginx
+    build: ./requirements/nginx
     image: nginx
     container_name: nginx
     ports:
@@ -18,7 +18,7 @@ services:
     restart: always
 
   wordpress:
-    build: ./srcs/wordpress
+    build: ./requirements/wordpress
     image: wordpress
     container_name: wordpress
     depends_on:
@@ -46,7 +46,7 @@ services:
     restart: always
 
   mariadb:
-    build: ./srcs/mariadb
+    build: ./requirements/mariadb
     image: mariadb
     container_name: mariadb
     volumes:
