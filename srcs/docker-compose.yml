@@ -12,7 +12,7 @@ services:
     volumes:
       - /home/totaisei/data/wp:/var/www/html
     extra_hosts:
-      - "${DOMAIN_NAME}:127.0.0.1"
+      - "totaisei.42.fr:127.0.0.1"
     networks:
       - inception_network
     restart: always
@@ -27,20 +27,8 @@ services:
       - "9000"
     volumes:
       - /home/totaisei/data/wp:/var/www/html
-    environment:
-      DOMAIN_NAME: "${DOMAIN_NAME}"
-      WP_ADMIN_LOGIN: "${WP_ADMIN_LOGIN}"
-      WP_ADMIN_PASS: "${WP_ADMIN_PASS}"
-      WP_ADMIN_EMAIL: "${WP_ADMIN_EMAIL}"
-      WP_USER_LOGIN_1: "${WP_USER_LOGIN_1}"
-      WP_USER_PASS_1: "${WP_USER_PASS_1}"
-      WP_USER_EMAIL_1: "${WP_USER_EMAIL_1}"
-      WP_USER_LOGIN_2: "${WP_USER_LOGIN_2}"
-      WP_USER_PASS_2: "${WP_USER_PASS_2}"
-      WP_USER_EMAIL_2: "${WP_USER_EMAIL_2}"
-      WP_DB_NAME: "${WP_DB_NAME}"
-      WP_DB_USER: "${WP_DB_USER}"
-      WP_DB_PASS: "${WP_DB_PASS}"
+    env_file:
+      - .env
     networks:
       - inception_network
     restart: always
@@ -53,15 +41,8 @@ services:
       - /home/totaisei/data/db:/var/lib/mysql
     ports:
       - "3306"
-    environment:
-      DOMAIN_NAME: "${DOMAIN_NAME}"
-      WP_DB_NAME: "${WP_DB_NAME}"
-      WP_DB_USER: "${WP_DB_USER}"
-      WP_DB_PASS: "${WP_DB_PASS}"
-      DB_USER_NAME_1: "${DB_USER_NAME_1}"
-      DB_USER_PASS_1: "${DB_USER_PASS_1}"
-      DB_USER_NAME_2: "${DB_USER_NAME_2}"
-      DB_USER_PASS_2: "${DB_USER_PASS_2}"
+    env_file:
+      - .env
     networks:
       - inception_network
     restart: always
