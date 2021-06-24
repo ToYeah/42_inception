@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   nginx:
     build: ./requirements/nginx
@@ -16,6 +16,7 @@ services:
     networks:
       - inception_network
     restart: always
+    init: true
 
   wordpress:
     build: ./requirements/wordpress
@@ -32,6 +33,7 @@ services:
     networks:
       - inception_network
     restart: always
+    init: true
 
   mariadb:
     build: ./requirements/mariadb
@@ -46,6 +48,7 @@ services:
     networks:
       - inception_network
     restart: always
+    init: true
 
 networks:
   inception_network:
