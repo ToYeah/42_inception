@@ -14,7 +14,7 @@ services:
       - "totaisei.42.fr:127.0.0.1"
     networks:
       - inception_network
-    restart: always
+    restart: on-failure
     init: true
 
   wordpress:
@@ -31,7 +31,7 @@ services:
       - .env
     networks:
       - inception_network
-    restart: always
+    restart: on-failure
     init: true
 
   mariadb:
@@ -46,7 +46,7 @@ services:
       - .env
     networks:
       - inception_network
-    restart: always
+    restart: on-failure
     init: true
 
 networks:
