@@ -38,10 +38,10 @@ RUN		set -eux;\
 	mv /tmp/wp-cli.phar /usr/local/bin/wp-cli;
 
 #setup wordpress
-COPY	./srcs/latest.tar.gz /tmp/latest.tar.gz
+#COPY	./srcs/latest.tar.gz /tmp/latest.tar.gz
 
 RUN		set -eux;\
-	#wget -O /tmp/latest.tar.gz --no-check-certificate https://wordpress.org/latest.tar.gz;\
+	wget -O /tmp/latest.tar.gz --no-check-certificate https://wordpress.org/latest.tar.gz;\
 	mkdir /usr/src/;\
 	tar -xvzf /tmp/latest.tar.gz -C /usr/src/;\
 	rm /tmp/latest.tar.gz;
