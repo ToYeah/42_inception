@@ -38,7 +38,7 @@ RUN		set -eux;\
 	mv /tmp/wp-cli.phar /usr/local/bin/wp-cli;
 
 #setup wordpress
-#COPY	./srcs/latest.tar.gz /tmp/latest.tar.gz
+#COPY	./tools/latest.tar.gz /tmp/latest.tar.gz
 
 RUN		set -eux;\
 	wget -O /tmp/latest.tar.gz --no-check-certificate https://wordpress.org/latest.tar.gz;\
@@ -48,11 +48,11 @@ RUN		set -eux;\
 
 RUN		rm /etc/php7/php-fpm.d/www.conf
 
-COPY 	./srcs/www.conf  /etc/php7/php-fpm.d/www.conf
+COPY 	./tools/www.conf  /etc/php7/php-fpm.d/www.conf
 
 RUN		chown -R www-data:www-data /usr/src/wordpress
 
-COPY	srcs/start.sh /start.sh
+COPY	tools/start.sh /start.sh
 RUN		chmod 744 /start.sh
 
 ENTRYPOINT [ "/start.sh" ]

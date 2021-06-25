@@ -11,8 +11,8 @@ RUN		set -eux;\
 
 #copy files
 RUN		rm -f /var/lib/nginx/html/index.html
-COPY	./srcs/ft_nginx.conf /etc/nginx/http.d/ft_nginx.conf
-COPY	./srcs/index.html /var/lib/nginx/html/index.html
+COPY	./tools/ft_nginx.conf /etc/nginx/http.d/ft_nginx.conf
+COPY	./tools/index.html /var/lib/nginx/html/index.html
 
 #setup nginx workspace
 RUN		mkdir -p /run/nginx;\
@@ -24,7 +24,7 @@ RUN		 mkdir /etc/nginx/ssl;\
 	openssl req -new -subj /CN=localhost -key /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.csr;\
 	openssl x509 -days 3650 -req -signkey /etc/nginx/ssl/server.key -in /etc/nginx/ssl/server.csr -out /etc/nginx/ssl/server.crt;
 
-COPY	./srcs/start.sh /
+COPY	./tools/start.sh /
 RUN		chmod 744 /start.sh
 
 ENTRYPOINT [ "/start.sh" ]
