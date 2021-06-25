@@ -12,6 +12,6 @@ down	:
 	docker-compose -f srcs/docker-compose.yml down 
 
 setup	:
-	sh srcs/tools/setup.sh
+	sh srcs/requirements/tools/setup.sh
 
 .PHONY: all Inception up down setup
