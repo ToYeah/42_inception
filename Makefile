@@ -2,16 +2,16 @@ NAME=	Inception
 
 all		: $(NAME)
 
-$(NAME)	: setup
+$(NAME)	:
 	docker-compose -f srcs/docker-compose.yml  up  --build -d
 
-up		: setup
+up		:
 	docker-compose -f srcs/docker-compose.yml  up  --build
 
 down	: 
 	docker-compose -f srcs/docker-compose.yml down 
 
 setup	:
-	sh srcs/requirements/tools/setup.sh
+	sudo sh srcs/requirements/tools/setup.sh
 
 .PHONY: all Inception up down setup
