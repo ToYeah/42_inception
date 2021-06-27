@@ -13,5 +13,7 @@ down	:
 
 setup	:
 	sudo sh srcs/requirements/tools/setup.sh
+	sudo mkdir -p /home/totaisei/data/db
+	sudo mkdir -p /home/totaisei/data/wp
 
 .PHONY: all Inception up down setup
