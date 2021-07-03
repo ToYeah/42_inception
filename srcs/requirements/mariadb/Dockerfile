@@ -3,7 +3,7 @@ FROM alpine
 #apk install
 RUN		set -eux;\
 	apk update;\
-	apk  --no-cache add \
+	apk add --no-cache \
 	mysql \
 	mysql-client 
 

@@ -3,7 +3,7 @@ FROM alpine
 #apk install
 RUN		set -eux;\
 	apk update;\
-	apk --no-cache add \
+	apk add --no-cache\
 	wget \
 	php7 \
 	php7-fpm \
@@ -19,7 +19,8 @@ RUN		set -eux;\
 	php7-imagick \
 	php7-xml \
 	php7-zip \
-	php7-phar 
+	php7-phar \
+	mysql-client
 
 #add user www-data
 RUN set -eux;\
