@@ -3,17 +3,9 @@ FROM alpine
 #apk install
 RUN		set -eux;\
 	apk update;\
-	apk add \
-	wget \
-	nginx \
-	openssl \
-	openssh \
-	openrc \
-	php-fpm \
-	php-mbstring \
+	apk  --no-cache add \
 	mysql \
-	mysql-client \
-	vim
+	mysql-client 
 
 RUN		mkdir -p /run/mysqld
 COPY	./tools/my.cnf /etc/my.cnf

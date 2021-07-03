@@ -3,11 +3,10 @@ FROM alpine
 #apk install
 RUN		set -eux;\
 	apk update;\
-	apk add \
+	apk  --no-cache add \
 	nginx \
 	openssl \
-	openssh \
-	openrc
+	openssh 
 
 #copy files
 RUN		rm -f /var/lib/nginx/html/index.html

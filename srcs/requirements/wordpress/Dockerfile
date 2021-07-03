@@ -5,9 +5,6 @@ RUN		set -eux;\
 	apk update;\
 	apk --no-cache add \
 	wget \
-	openssl \
-	openssh \
-	openrc \
 	php7 \
 	php7-fpm \
 	php7-curl \
@@ -22,8 +19,7 @@ RUN		set -eux;\
 	php7-imagick \
 	php7-xml \
 	php7-zip \
-	php7-phar \
-	mysql-client
+	php7-phar 
 
 #add user www-data
 RUN set -eux;\
