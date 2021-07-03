@@ -27,6 +27,8 @@ services:
       - "9000"
     volumes:
       - wpfiles:/var/www/html
+    extra_hosts:
+      - "totaisei.42.fr:127.0.0.1"
     env_file:
       - .env
     networks:
