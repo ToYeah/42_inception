@@ -27,6 +27,7 @@ RUN		set -eux;\
 
 #add user www-data
 RUN set -eux;\
+	addgroup -g 82 -S www-data;\
 	adduser -u 82 -D -S -G www-data www-data
 
 #install wp-cli
